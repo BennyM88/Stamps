@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/countryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="countryName"
+        android:textColor="#F7F7F7"
+        android:textSize="22sp"/>
+
+    <EditText
+        android:id="@+id/countryNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add your note..."
+        android:textColorHint="#9E9E9E"
+        android:lines="5"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textColor="#F7F7F7"
+        tools:text="Anything" />
+
+    <Button
+        android:id="@+id/addPhotoButton"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Add Photo"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:iconGravity="textStart"
+        app:cornerRadius="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#F7F7F7"
+        android:backgroundTint="#BB86FC"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/images"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_photo"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="250dp"
+        tools:srcCompat="@tools:sample/avatars" />
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
