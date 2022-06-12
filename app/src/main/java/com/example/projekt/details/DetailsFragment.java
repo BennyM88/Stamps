@@ -22,7 +22,7 @@ import com.example.projekt.db.AppDatabase;
 import com.example.projekt.db.CountryDB;
 import com.example.projekt.photo.PhotoDB;
 
-public class DetailsFragment extends Fragment {
+public class DetailsFragment extends Fragment implements PhotosAdapterListener {
     private FragmentDetailsBinding binding;
     private CountryDB countryDB;
     private final ActivityResultLauncher<String> mGetContent = registerForActivityResult(
@@ -40,7 +40,7 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adapter = new PhotosAdapter(getActivity().getContentResolver());
+        adapter = new PhotosAdapter(this, getActivity().getContentResolver());
     }
 
 
@@ -120,5 +120,10 @@ public class DetailsFragment extends Fragment {
         bundle.putInt("id", id);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    @Override
+    public void delete(int id) {
+        AppDatabase.getInstance().getPhotosDAO().delete(id);
     }
 }

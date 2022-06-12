@@ -44,6 +44,7 @@ public class AppDatabase {
                         super.onCreate(db);
                         Executors.newSingleThreadExecutor().execute(() -> {
                             List<CountryJson> countries = getCountriesFromFile(context);
+                            assert countries != null;
                             loadData(countries,countryDAO);
                         });
                     }

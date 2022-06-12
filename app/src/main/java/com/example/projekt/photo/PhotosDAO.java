@@ -13,4 +13,6 @@ public interface PhotosDAO {
     public void insertPhoto (PhotoDB photoDB);
     @Query("select * from photos where countryID=:countryID")
     LiveData<List<PhotoDB>> getPhotos(int countryID);
+    @Query("delete from photos where id=:id")
+    void delete(int id);
 }

@@ -27,4 +27,6 @@ public interface CountryDAO {
     void updateCountryStatus(int id, boolean isChecked);
     @Query("select * from countries where wantToSee = 1")
     LiveData<List<CountryDB>> getLiveDataWithWantToSeeCountries();
+    @Query("update countries set wantToSee = 1 where name=:country")
+    void updateCountryStatus(String country);
 }
